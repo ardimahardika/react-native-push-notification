@@ -169,6 +169,7 @@ public class RNPushNotificationHelper {
 
         Intent intent = new Intent(mContext, intentClass);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        bundle.putBoolean("userInteraction", true);
         intent.putExtra("notification", bundle);
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
