@@ -6,15 +6,23 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 
 import java.util.List;
+import java.util.Map;
 
 import com.google.android.gms.gcm.GcmListenerService;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 
 import org.json.JSONObject;
 
-public class RNPushNotificationListenerService extends GcmListenerService {
+public class RNPushNotificationListenerService extends FirebaseMessagingService {
 
     @Override
-    public void onMessageReceived(String from, Bundle bundle) {
+    public void onMessageReceived(RemoteMessage message) {
+        String from = message.getFrom();
+        final Bundle bundle = new Bundle();
+        for(Map.Entry<String, String> entry : message.getData().entrySet()) {
+            bundle.putString(entry.getKey(), entry.getValue());
+        }
         JSONObject data = getPushData(bundle.getString("data"));
         if (data != null) {
             if (!bundle.containsKey("message")) {

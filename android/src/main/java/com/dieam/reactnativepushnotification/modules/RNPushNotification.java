@@ -140,6 +140,13 @@ public class RNPushNotification extends ReactContextBaseJavaModule {
         mRNPushNotificationHelper.cancelAll();
     }
 
+/*
+    @ReactMethod
+    public void subscribeToTopic(String topic) {
+        FirebaseMessaging.getInstance().subscribeToTopic(topic);
+    }
+*/
+
     @ReactMethod
     public void presentLocalNotification(ReadableMap details) {
         Bundle bundle = Arguments.toBundle(details);
