@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.*;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import android.content.Context;
 
 public class RNPushNotification extends ReactContextBaseJavaModule {
@@ -140,12 +141,12 @@ public class RNPushNotification extends ReactContextBaseJavaModule {
         mRNPushNotificationHelper.cancelAll();
     }
 
-/*
+
     @ReactMethod
     public void subscribeToTopic(String topic) {
         FirebaseMessaging.getInstance().subscribeToTopic(topic);
     }
-*/
+
 
     @ReactMethod
     public void presentLocalNotification(ReadableMap details) {

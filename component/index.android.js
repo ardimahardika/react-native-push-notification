@@ -29,11 +29,11 @@ NotificationsComponent.prototype.requestPermissions = function(senderID: string)
 	RNPushNotification.requestPermissions(senderID);
 };
 
-/*
+
 NotificationsComponent.prototype.subscribeToTopic = function(topic: string) {
  	RNPushNotification.subscribeToTopic(topic);
 };
-*/
+
 
 NotificationsComponent.prototype.cancelAllLocalNotifications = function() {
 	RNPushNotification.cancelAllLocalNotifications();
