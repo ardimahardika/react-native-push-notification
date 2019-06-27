@@ -31,9 +31,10 @@ public class RNPushNotificationListenerService extends FirebaseMessagingService 
             if (!bundle.containsKey("title")) {
                 bundle.putString("title", data.optString("title", null));
             }
+            sendNotification(bundle);
         }
 
-        sendNotification(bundle);
+        // sendNotification(bundle);
     }
 
     private JSONObject getPushData(String dataString) {
